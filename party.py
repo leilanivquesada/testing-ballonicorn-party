@@ -7,22 +7,41 @@ app.secret_key = "SECRETSECRETSECRET"
 
 
 def is_mel(name, email):
-    """Is this user Mel?"""
+    """Is this user Mel?
+    
+    >>> is_mel("Mel Melitpolski", "mel@mel.com")
+    True
+    >>> is_mel("Leilani Quesada", 'l@gmail.com')
+    False
+    >>> is_mel("Mel", "mel@ubermelon.com")
+    True
 
-    return name == "Mel Melitpolski" or email == "mel@ubermelon.com"
+
+    """
+
+    return name == "Mel Melitpolski" or email == "mel@ubermelon.com" 
 
 
 def most_and_least_common_type(treats):
     """Given list of treats, return most and least common treat types.
 
     Return most and least common treat types in tuple of format (most, least).
-    """
+        
+    >>> most_and_least_common_type([{'type': 'drink'},{'type': 'drink'}, {'type': 'dessert'}])
+    ('drink', 'dessert')
+    >>> most_and_least_common_type([{'type': 'drink'}])
+    ('drink', 'drink')
+    >>> most_and_least_common_type([])
+    (None, None)
+    
+    """ 
 
     types = {}
 
     # Count number of each type
     for treat in treats:
         types[treat['type']] = types.get(treat['type'], 0) + 1
+        
 
     most_count = most_type = None
     least_count = least_type = None
