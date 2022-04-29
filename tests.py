@@ -39,7 +39,7 @@ class PartyTests(unittest.TestCase):
 
         # check that once we log in we see party details--but not the form!
         self.assertIn(b"<h2>Party Details</h2>", result.data)
-        self.assertNotIn(b"Please RSVPs", result.data)
+        self.assertNotIn(b"Please RSVP", result.data)
         
 
     def test_rsvp_mel(self):
